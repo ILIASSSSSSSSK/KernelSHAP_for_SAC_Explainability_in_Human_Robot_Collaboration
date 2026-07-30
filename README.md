@@ -1,7 +1,7 @@
 A GUIDE FOR THE USE OF THE SIMULATION
 ---------------------------------------
 
-
+![image alt](https://github.com/ILIASSSSSSSSK/KernelSHAP_for_SAC_Explainability_in_Human_Robot_Collaboration/blob/a691afbc2a5d018556d8c86760861aca37ffe120/gazebo%20simulation.png)
 ---------------
 WHAT IS NEEDED
 ---------------
