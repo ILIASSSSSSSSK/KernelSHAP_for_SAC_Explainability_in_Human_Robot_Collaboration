@@ -6,14 +6,14 @@ A GUIDE FOR THE USE OF THE SIMULATION
 WHAT IS NEEDED
 ---------------
 
-1) To launch the game with the simulation:
--------------------------------------------
+1. To launch the game with the simulation run:
+
 source ../../opt/ros/melodic/setup.bash
 source Desktop/catkin_ws5/devel/setup.bash 
 roslaunch human_robot_collaborative_learning game_with_gazebo.launch 
 
-2) In order to rephresh the EE marker position at each timestep:
------------------------------------------------------------------
+2. In order to rephresh the EE marker position at each timestep run:
+
 source ../../opt/ros/melodic/setup.bash
 source Desktop/catkin_ws5/devel/setup.bash 
 source Desktop/spawn_marker_catkin_ws/devel/setup.bash 
@@ -21,7 +21,7 @@ rosrun spawn_maker_pkg listener.py
 
 The code of the spawn_marker_catkin_ws can be found in the following github repository: https://github.com/ILIASSSSSSSSK/spawn_marker_catkin_ws
 
-3) To control the EE with the keyboard:
+3. To control the EE with the keyboard run:
 ----------------------------------------
 source ../../opt/ros/melodic/setup.bash
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
