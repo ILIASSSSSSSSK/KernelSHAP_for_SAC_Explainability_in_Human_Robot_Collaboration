@@ -13,19 +13,19 @@ WHAT IS NEEDED
    roslaunch human_robot_collaborative_learning game_with_gazebo.launch 
 ```
 2. In order to rephresh the EE marker position at each timestep run:
-
+```bash
    source ../../opt/ros/melodic/setup.bash
    source Desktop/catkin_ws5/devel/setup.bash 
    source Desktop/spawn_marker_catkin_ws/devel/setup.bash 
    rosrun spawn_maker_pkg listener.py 
-
+```
 The code of the spawn_marker_catkin_ws can be found in the following github repository: https://github.com/ILIASSSSSSSSK/spawn_marker_catkin_ws
 
 3. To control the EE with the keyboard run:
-
+```bash
    source ../../opt/ros/melodic/setup.bash
    rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
-
+```
 Important note: the
 
 ---------------------------------------------------
@@ -53,13 +53,13 @@ Important parameters (in robot_control_params.yaml in config)
 --------------------------------------------------------------
 
 
-max_vel: maximum value of EE's velocity (same for both x and y axis)
-min_vel: minimum value of EE's velocity (same for both x and y axis)
+- max_vel: maximum value of EE's velocity (same for both x and y axis)
+- min_vel: minimum value of EE's velocity (same for both x and y axis)
 
-max_x: maximum value of the x position of the EE
-min_x: minimum value of the x position of the EE
-max_y: maximum value of the y position of the EE
-min_y: minimum value of the y position of the EE
+- max_x: maximum value of the x position of the EE
+- min_x: minimum value of the x position of the EE
+- max_y: maximum value of the y position of the EE
+- min_y: minimum value of the y position of the EE
 
 
 ---------------
