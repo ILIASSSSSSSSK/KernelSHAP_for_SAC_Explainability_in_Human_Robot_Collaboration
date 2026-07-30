@@ -7,11 +7,11 @@ WHAT IS NEEDED
 ---------------
 
 1. To launch the game with the simulation run:
-
+```bash
    source ../../opt/ros/melodic/setup.bash
    source Desktop/catkin_ws5/devel/setup.bash 
    roslaunch human_robot_collaborative_learning game_with_gazebo.launch 
-
+```
 2. In order to rephresh the EE marker position at each timestep run:
 
    source ../../opt/ros/melodic/setup.bash
@@ -33,19 +33,19 @@ Important parameters (in rl_params.yaml in config)
 ---------------------------------------------------
 
 
--train_model: True if you want the whole game to be run (training and testing blocks). IF you want only to TEST an exisiting trained agent use False
+- train_model: True if you want the whole game to be run (training and testing blocks). IF you want only to TEST an exisiting trained agent use False
 
--num_blocks: If train_model=False, then set num_blocks to be equal to 1 (error otherwise if I remember correctly) 
+- num_blocks: If train_model=False, then set num_blocks to be equal to 1 (error otherwise if I remember correctly) 
 
--load_model_testing_dir_actor and load_model_testing_dir_critic: the locations of the actor and the critic when you want to TEST an agent
+- load_model_testing_dir_actor and load_model_testing_dir_critic: the locations of the actor and the critic when you want to TEST an agent
 
--initialized_agent: True if you want a specific initialized agent in the agent block (this is usefull only if train_model=True), False otherwise
+- initialized_agent: True if you want a specific initialized agent in the agent block (this is usefull only if train_model=True), False otherwise
 
--initialized_agent_dir: Where the initialized agent actor and critic are stored
+- initialized_agent_dir: Where the initialized agent actor and critic are stored
 
--gazebo_simulation: True if you want to run the game in the gazebo simulation
+- gazebo_simulation: True if you want to run the game in the gazebo simulation
 
--participant_name: Be carefull to change it when you run a new game
+- participant_name: Be carefull to change it when you run a new game
 
 
 --------------------------------------------------------------
