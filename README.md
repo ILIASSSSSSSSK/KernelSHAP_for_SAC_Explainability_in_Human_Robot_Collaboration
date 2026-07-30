@@ -26,7 +26,10 @@ The code of the spawn_marker_catkin_ws can be found in the following github repo
    source ../../opt/ros/melodic/setup.bash
    rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
 ```
-Important note: the
+**Important note**: The terminal where the teleop_twist_keyboard command was run needs to be right-clicked in order for the user to be able to control the motion of the EE in the y axis. The EE is controlled by the following keys: 
+- ‘i’: positive acceleration.
+- ‘,’: negative acceleration.
+- ‘k’: 0 acceleration.
 
 ---------------------------------------------------
 Important parameters (in rl_params.yaml in config)
@@ -74,4 +77,6 @@ Important Notes
 ```
 based on the configuration of the real robot on those positions. If new initial positions are needed the new corresponding configurations need to be obtained and the values of those lists need to be changed
 
-2. The simulation starts 
+2. The camera viewpoint of the Gazebo simulation must be adjusted manually.
+
+3. 
