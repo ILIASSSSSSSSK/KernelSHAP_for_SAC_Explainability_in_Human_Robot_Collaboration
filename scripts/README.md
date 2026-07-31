@@ -8,7 +8,7 @@
 A GUIDE FOR THE USE OF THE KERNEL SHAP EXPLAINER
 -------------------------------------------------
 
-Note: When writing those codes in the files with the appropriate data the columns "blocks" and "episodes" are swapped (the data that should be stored as blocks are stored as episodes and vice versa) 
+*Note: When writing those codes in the files with the appropriate data the columns "blocks" and "episodes" are swapped (the data that should be stored as blocks are stored as episodes and vice versa)*
 
 All the codes needed are stored in /Desktop/catkin_ws5/src/hrc_study_tsitosetal/scripts
 
