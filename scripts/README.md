@@ -12,6 +12,8 @@ A GUIDE FOR THE USE OF THE KERNEL SHAP EXPLAINER
 
 All the codes needed are stored in /Desktop/catkin_ws5/src/hrc_study_tsitosetal/scripts
 
+- objective_metrics.py:
+  
 - histogram_duration.py:
 
 The code when run plots a histogram which shows the frequency of games' duration.
