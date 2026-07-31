@@ -34,7 +34,7 @@ This part finds where the games are stored. The location of the files are stored
 This code filteres the games stored in file_names (which is defined with the same way as above). It does the following filtering:
 
 i\. First it filters all games which have durations smaller than 10 timesteps or higher than 24 timesteps (that was decided based on the histogram ploted by the code above):
-
+```bash
 blocks=range(1,521) #The total number of the games is 520 in that case. Change it so that it corresponds to your total number of games (number of games+1)
 durations=[]
 for i in range(len(blocks)):
@@ -47,17 +47,17 @@ ignore_blocks=[]
 for i in range(len(durations)):
   if (durations[i]<10) or (durations[i]>24): #change them based on the durations you want: here the durations of the games must be in the set [10,24]
     ignore_blocks.append(blocks[i])
-
+```
 ii\. Then it guaranteen that the games with the same initial positions are equally distributed:
-
+```bash
 print(len(blocks_0),len(blocks_1),len(blocks_2),len(blocks_3)) #this print helps me to see the number of games with the same initial position
 
 ignore_b0 = random.sample(blocks_0, 3) #the number of games that are needed to be removed from each initial position in order to be equally distributed 
 ignore_b1 = random.sample(blocks_1, 4)
 ignore_b2 = random.sample(blocks_2, 14)
-
+```
 iii\. Then the games which have a duration with an integer 20% are used as a test set for the kernel SHAP explainer. The rest are used as the background set.
-
+```bash
 np.savetxt("X_test_248_K3.csv",X_test,delimiter=",", fmt="%f")
 
 with open("X_test_df_248_K3.pkl", "wb") as f:
@@ -70,15 +70,15 @@ with open("X_train_df_248_K3.pkl", "wb") as f:
     pickle.dump(X_train_df, f)
 with open("train_blocks_248_K3.pkl", "wb") as f:
     pickle.dump(train_blocks, f)
-    
+```    
 - check_if_target_satisfied.py
 
 file_names
-
+```bash
 ["X_test_df_248_K5.pkl","test_blocks_248_K5.pkl","X_test_248_K5.csv","X_test_final_248_K5.pkl","X_test_games_248_K5.pkl"]
-
--.py
-
+```
+- .py
+```bash
 checkpoint_path = "/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/rl_models/75K_every8_uniform_200ms_Ilias_news7_1_no_TL_1/actor_sac_12"
 state_dict = th.load(checkpoint_path, map_location=device)
 model.load_state_dict(state_dict)
@@ -94,6 +94,7 @@ np.savetxt("shap_values_try1_action_1_248_K7.csv", shap_values_action_1, delimit
 np.savetxt("shap_values_try1_action_2_248_K7.csv", shap_values_action_2, delimiter=",", fmt="%f")
 
 joblib.dump(explainer, "kernel_explainer_248_K7.pkl")
--.py
+```
+- .py
 
 6)
