@@ -17,7 +17,7 @@ All the codes needed are stored in /Desktop/catkin_ws5/src/hrc_study_tsitosetal/
 The code when run plots a histogram which shows the frequency of games' duration.
 
 The important part of the code is:
-
+```bash
 file_location_part_A="/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/Ilias_Experiments/games_info/Ilias_news_100_test_experiments_"
 file_names=[]
 df = pd.DataFrame()
@@ -26,7 +26,7 @@ for i in range(1,66):
     file_names.append(file_location_part_A+str(i)+"_14112025/data/rl_test_data.csv")
   else:
     file_names.append(file_location_part_A+str(i)+"_11032026/data/rl_test_data.csv")
-    
+```    
 This part finds where the games are stored. The location of the files are stored in a variable called file_names. Change this part of the code according to your preferences or just select your file_names manually after this part of the code.
 
 2. take_only_10_22_dur.py:
