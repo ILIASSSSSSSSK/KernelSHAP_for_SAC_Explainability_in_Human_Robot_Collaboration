@@ -73,7 +73,8 @@ with open("X_train_df_248_K3.pkl", "wb") as f:
 with open("train_blocks_248_K3.pkl", "wb") as f:
     pickle.dump(train_blocks, f)
 ```    
-- check_if_target_satisfied.py
+- ```check_if_target_satisfied.py```:
+
 It checks whether the final speed and position of the EE at the end of each game indeed satisfy the goal state. This code is executed separately for the games belonging to the background set and the test set. It then stores the data in the appropriate file formats so that the KernelSHAP Explainer can be implemented:
 ```bash
 files_to_open_and_store=["X_test_df_248_K5.pkl","test_blocks_248_K5.pkl","X_test_248_K5.csv","X_test_final_248_K5.pkl","X_test_games_248_K5.pkl"]
