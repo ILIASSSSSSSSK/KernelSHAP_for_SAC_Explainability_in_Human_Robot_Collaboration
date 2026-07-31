@@ -2,7 +2,7 @@ A GUIDE FOR THE USE OF THE SIMULATION
 ---------------------------------------
 The specific readme includes directions in order to run the gazebo simulation used in the thesis "Explainability in Human-Artificial Intelligence Collaboration" written by Ilias Kasiotakis, submitted in partial fulfilment of the requirements for the degree of Master of Artificial Intelligence at the UNIVERSITY OF PIRAEUS. The gazebo simulation implements a virtual collaborative task , in which a human and a Deep Reinforcement Learning (DRL) agent jointly control the End-Effector (EE) of a UR3 cobot toward a target position. The human controls the motion of the EE in the y-axis and the DRL agent controls the motion of the EE in the x-axis. The Gazebo simulation of the collaborative task is presented in the following figure:
 
-![image alt](https://github.com/ILIASSSSSSSSK/KernelSHAP_for_SAC_Explainability_in_Human_Robot_Collaboration/blob/a691afbc2a5d018556d8c86760861aca37ffe120/gazebo%20simulation.jpg)
+![image alt](https://github.com/ILIASSSSSSSSK/KernelSHAP_for_SAC_Explainability_in_Human_Robot_Collaboration/blob/99f49fc1ab73c47b747709de56d2272307073d0d/gazebo_simulation.jpg)
 ---------------
 WHAT IS NEEDED
 ---------------
