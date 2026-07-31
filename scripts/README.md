@@ -48,7 +48,7 @@ for i in range(len(durations)):
   if (durations[i]<10) or (durations[i]>24): #change them based on the durations you want: here the durations of the games must be in the set [10,24]
     ignore_blocks.append(blocks[i])
 ```
-ii\. Then it guaranteen that the games with the same initial positions are equally distributed:
+ii\. Then it guarantees that the games with the same initial positions are equally distributed:
 ```bash
 print(len(blocks_0),len(blocks_1),len(blocks_2),len(blocks_3)) #this print helps me to see the number of games with the same initial position
 
@@ -56,7 +56,7 @@ ignore_b0 = random.sample(blocks_0, 3) #the number of games that are needed to b
 ignore_b1 = random.sample(blocks_1, 4)
 ignore_b2 = random.sample(blocks_2, 14)
 ```
-iii\. Then the games which have a duration with an integer 20% are used as a test set for the kernel SHAP explainer. The rest are used as the background set.
+iii\. The games with durations corresponding to integer multiples of 20% are used as the test set for the KernelSHAP Explainer. The remaining games are used as the background set. The games and their corresponding blocks are stored in files according to the following code: 
 ```bash
 np.savetxt("X_test_248_K3.csv",X_test,delimiter=",", fmt="%f")
 
@@ -72,29 +72,33 @@ with open("train_blocks_248_K3.pkl", "wb") as f:
     pickle.dump(train_blocks, f)
 ```    
 - check_if_target_satisfied.py
-
-file_names
+It checks whether the final speed and position of the EE at the end of each game indeed satisfy the goal state. This code is executed separately for the games belonging to the background set and the test set. It then stores the data in the appropriate files so that the KernelSHAP Explainer can be implemented using the following code:
 ```bash
-["X_test_df_248_K5.pkl","test_blocks_248_K5.pkl","X_test_248_K5.csv","X_test_final_248_K5.pkl","X_test_games_248_K5.pkl"]
+files_to_open_and_store=["X_test_df_248_K5.pkl","test_blocks_248_K5.pkl","X_test_248_K5.csv","X_test_final_248_K5.pkl","X_test_games_248_K5.pkl"]
+with open(files_to_open_and_store[0],'rb') as file:
+  X_test_df=pickle.load(file)
+with open(files_to_open_and_store[1],'rb') as file:
+  test_blocks=pickle.load(file)
+X_test=np.loadtxt(files_to_open_and_store[2],delimiter=",")
+X_test_games=[]
 ```
-- .py
-```bash
-checkpoint_path = "/home/kassiotakis/Desktop/catkin_ws5/src/hrc_study_tsitosetal/rl_models/75K_every8_uniform_200ms_Ilias_news7_1_no_TL_1/actor_sac_12"
-state_dict = th.load(checkpoint_path, map_location=device)
-model.load_state_dict(state_dict)
+- SHAP_explainer.py:
 
-with open("X_test_final_248_K7.pkl", "rb") as f:
-    X_test=pickle.load(f)
+It implements the KernelSHAP explainer and it produces the SHAP values.
 
-with open("X_train_final_248_K7.pkl", "rb") as f:
-    X_train=pickle.load(f)
-    
-np.savetxt("shap_values_try1_action_0_248_K7.csv", shap_values_action_0, delimiter=",", fmt="%f")
-np.savetxt("shap_values_try1_action_1_248_K7.csv", shap_values_action_1, delimiter=",", fmt="%f")
-np.savetxt("shap_values_try1_action_2_248_K7.csv", shap_values_action_2, delimiter=",", fmt="%f")
+- SHAP_feat_plots2.py:
 
-joblib.dump(explainer, "kernel_explainer_248_K7.pkl")
-```
-- .py
+It plots the graphs which show the change in the SHAP value of each feature per percentage of game completion  
 
-- .py
+- shap_scatter_plots.py:
+
+   The scatter plot graphs of the 3 available actions showing the position of
+the EEduring the execution of the games that makeup the testset,withtheSHAPvalue
+of feature x as thecolormap. Wedenotethetargetpositionandtheregionwithinwhich
+the goal state is satisfied with a purple point and a purple circle, respectively
+
+ The scatter plot graphs showing the EE’s uy values at positions y for the 3
+available actions across the test set, in the case where the EE is left the target position.
+The colormap is the importance of the SHAP values.
+
+- K_cross_validation.py
