@@ -178,6 +178,9 @@ def model_predict(X):
 
 # Create the SHAP Kernel Explainer
 explainer = shap.KernelExplainer(model_predict, X_train)
+
+#Store the kernel SHAP explainer
+
 joblib.dump(explainer, "kernel_explainer_248_K7.pkl")
 shap_values = explainer.shap_values(X_test)
 shap_values = np.array(shap_values)
