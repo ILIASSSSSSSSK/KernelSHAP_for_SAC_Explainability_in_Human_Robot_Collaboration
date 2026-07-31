@@ -94,6 +94,12 @@ It plots all the graphs which show the change in the SHAP value of each feature 
 
 - shap_scatter_plots.py:
 
-It plots the scatter plot graphs of the 3 available actions showing the position of the EE during the execution of the games that makeup the test set, with the SHAP value of feature x as the colormap. It also plots the scatter plot graphs showing the EE’s $u_x$ values at positions x for the 3 available actions across the test set, in the case where the EE is left the target position. The colormap is the importance of the SHAP values. It 
+It plots the scatter plot graphs of the 3 available actions showing the position of the EE during the execution of the games that makeup the test set, with the SHAP value of feature x as the colormap. It also plots the scatter plot graphs showing the EE’s $u_x$ values at positions x for the 3 available actions across the test set, in two different cases: when the EE is left the target position and when the EE is right the target position. The colormap is the importance of the SHAP values. Those graphs are ploted when the variable ```pos_sel``` is set equal to 0. When it is set equal to 1, analogous plots are generated for feature y and the EE's $uy$ values as a function of the y-position when the EE is above and below the target position, respectively. 
 
-- K_cross_validation.py
+- K_cross_validation.py:
+
+It creates 5 different test sets (each containing 76 games) and 5 corresponding complementary background sets (each containing 344 games) in order to perform K-cross-fold validation with K=5. Then, SHAP_explainer.py is used to create 5 separate KernelSHAP explainers and to generate SHAP values from the corresponding test sets.
+
+- comapre_validation.py:
+
+For each fold, it calculates the mean SHAP value of each feature for each action when the feature values fell within specific intervals. The intervals were chosen such that the mean SHAP value of each feature is representative of that interval. It then compares the calculated mean SHAP values across the folds for each action and for each feature within the respective intervals. 
