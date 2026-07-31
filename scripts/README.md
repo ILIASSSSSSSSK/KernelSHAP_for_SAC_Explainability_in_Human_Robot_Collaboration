@@ -90,17 +90,10 @@ It implements the KernelSHAP explainer using the data from the background set an
 
 - SHAP_feat_plots2.py:
 
-It plots the graphs which show the change in the SHAP value of each feature per percentage of game completion, provided that the ```bash changed ``` argument in the plot_shap() function is set to True.
+It plots all the graphs which show the change in the SHAP value of each feature per percentage of game completion,the graphs which show the change in the calculated distance of the EE from the target position (including the distance of each component) per percentage of game completion and the graphs which show the  change in the calculated speed of the EE (including the magnitudes of each component) per percentage of game completion. It must be provided that the ``` changed ``` argument in the plot_shap() function is set to True. 
 
 - shap_scatter_plots.py:
 
-   The scatter plot graphs of the 3 available actions showing the position of
-the EEduring the execution of the games that makeup the testset,withtheSHAPvalue
-of feature x as thecolormap. Wedenotethetargetpositionandtheregionwithinwhich
-the goal state is satisfied with a purple point and a purple circle, respectively
-
- The scatter plot graphs showing the EE’s uy values at positions y for the 3
-available actions across the test set, in the case where the EE is left the target position.
-The colormap is the importance of the SHAP values.
+It plots the scatter plot graphs of the 3 available actions showing the position of the EE during the execution of the games that makeup the test set, with the SHAP value of feature x as the colormap. It also plots the scatter plot graphs showing the EE’s $u_x$ values at positions x for the 3 available actions across the test set, in the case where the EE is left the target position. The colormap is the importance of the SHAP values. It 
 
 - K_cross_validation.py
